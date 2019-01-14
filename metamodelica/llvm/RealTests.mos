@@ -1,0 +1,70 @@
+// name:     Real test LLVM
+// keywords: LLVM
+// status:   correct
+// cflags:   -g=MetaModelica -d=jit_eval_func
+//
+// Testing real number operations. Simple functions for LLVM JIT
+//
+loadFile("RealTests.mo");
+RealTests.five();
+RealTests.minusFive();
+RealTests.rAdd(1.5,1.4);
+RealTests.rMult(0.3,3);
+RealTests.rMult(4,-4);
+RealTests.rMult(-4,-4);
+RealTests.powTest(2.0,32);
+RealTests.rDiv(4,4);
+RealTests.rSub(1,1);
+RealTests.negateReal(-20);
+RealTests.branchTestReal(1);
+RealTests.branchTestReal(2);
+RealTests.branchTestReal(3);
+RealTests.branchTestReal(4);
+RealTests.branchTestReal(5);
+RealTests.absoluteVal1(-1);
+RealTests.absoluteVal2(0);
+RealTests.absoluteVal3(-999);
+RealTests.cosTest(1.8);
+RealTests.checkGEQOperator(2,1);
+RealTests.checkLEQOperator(4,4);
+RealTests.checkGTOperator(5,4);
+RealTests.checkLTOperator(3,4);
+RealTests.checkEQOperator(1000,1000);
+RealTests.whileSum(20);
+(r1,r2,r3) := RealTests.mReturnsReal(2,2,2);
+(r1,r2,r3,r4) := RealTests.mReturnsReal2(2,2,4,2);
+print(realString(r2));
+print(realString(r3));
+RealTests.whileSum(55);
+// Result:
+// true
+// 5.0
+// -5.0
+// 2.9
+// 0.8999999999999999
+// -16.0
+// 16.0
+// 4294967296.0
+// 1.0
+// 0.0
+// 20.0
+// 1.0
+// 2.0
+// 3.0
+// 4.0
+// 5.0
+// 1.0
+// 0.0
+// -999.0
+// -0.2272020946930871
+// 1.0
+// 1.0
+// 1.0
+// 1.0
+// 1.0
+// 210.0
+//
+// 
+// 4.0
+// 8.0
+// 1540.0
