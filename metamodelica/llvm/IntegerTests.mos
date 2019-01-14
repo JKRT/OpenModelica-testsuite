@@ -1,0 +1,73 @@
+// name:     Integer test LLVM
+// keywords: LLVM
+// status:   correct
+// cflags:   -g=MetaModelica -d=jit_eval_func
+//
+// Builtin function testing
+//
+loadFile("IntegerTests.mo");
+r := IntegerTests.negativeOne();
+r := IntegerTests.leetLeet();
+r := IntegerTests.five();
+r := IntegerTests.six();
+r := IntegerTests.leet();
+r := IntegerTests.minusFive();
+r := IntegerTests.iAdd(3,5);
+r := IntegerTests.iMult(4,4);
+r := IntegerTests.iAdd(-9,1);
+r := IntegerTests.iMult(4,-4);
+r := IntegerTests.iMult(-4,-4);
+r := IntegerTests.iDiv(4,4);
+r := IntegerTests.iSub(1000,-1000);
+r := IntegerTests.negateInteger(-20);
+r := IntegerTests.branchTestInteger(1);
+r := IntegerTests.branchTestInteger(2);
+r := IntegerTests.branchTestInteger(3);
+r := IntegerTests.branchTestInteger(4);
+r := IntegerTests.absoluteVal1(-1);
+r := IntegerTests.absoluteVal2(1);
+r := IntegerTests.absoluteVal3(-999);
+r := IntegerTests.checkGEQOperator(2,1);
+r := IntegerTests.checkLEQOperator(4,4);
+r := IntegerTests.checkGTOperator(5,4);
+r := IntegerTests.checkLTOperator(3,4);
+r := IntegerTests.checkEQOperator(1000,1000);
+(r1,r2,r3) := IntegerTests.callMReturnsInt(5,10,20);
+(r1,r2,r3) := IntegerTests.mReturnsInt(5,10,20);
+r := IntegerTests.whileSum(10);
+r := IntegerTests.whileSum(r);
+r := IntegerTests.whileSum(r);
+// Result:
+// true
+// -1
+// 10696
+// 5
+// 6
+// 10696
+// -5
+// 8
+// 16
+// -8
+//-16
+//16
+//1
+//2000
+//20
+//1
+//2
+//3
+//4
+//1
+//1
+//999
+//1
+//1
+//1
+//1
+//1
+//
+//
+//55
+//1540
+//1186570
+// endResult

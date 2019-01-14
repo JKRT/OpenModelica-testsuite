@@ -1,0 +1,50 @@
+// name: UnionType test LLVM
+// keywords: LLVM
+// status:   correct
+// cflags:   -g=MetaModelica -d=gen
+loadFile("UnionTypeTest.mo");
+UnionTypeTest.getInteger();
+UnionTypeTest.getReal();
+UnionTypeTest.getBoolean();
+UnionTypeTest.getString();
+UnionTypeTest.getSLst();
+UnionTypeTest.getLst();
+UnionTypeTest.getNestedLst();
+UnionTypeTest.getUnionType(UnionTypeTest.INTEGER(1));
+// Result:
+// true
+// 1337
+// 1.0
+// true
+// "Hello world!
+// "
+// {1,2,3}
+// {record UnionTypeTest.encapsulatedData.REAL
+//     r = 1.0
+// end UnionTypeTest.encapsulatedData.REAL;,record UnionTypeTest.encapsulatedData.REAL
+//     r = 2.0
+// end UnionTypeTest.encapsulatedData.REAL;,record UnionTypeTest.encapsulatedData.REAL
+//     r = 3.0
+// end UnionTypeTest.encapsulatedData.REAL;}
+// {record UnionTypeTest.encapsulatedData.LIST
+//     lst = {record UnionTypeTest.encapsulatedData.INTEGER
+//     i = 1
+// end UnionTypeTest.encapsulatedData.INTEGER;}
+// end UnionTypeTest.encapsulatedData.LIST;,record UnionTypeTest.encapsulatedData.LIST
+//     lst = {record UnionTypeTest.encapsulatedData.INTEGER
+//     i = 1
+// end UnionTypeTest.encapsulatedData.INTEGER;,record UnionTypeTest.encapsulatedData.BOOLEAN
+//     b = 1
+// end UnionTypeTest.encapsulatedData.BOOLEAN;}
+// end UnionTypeTest.encapsulatedData.LIST;,record UnionTypeTest.encapsulatedData.LIST
+//     lst = {record UnionTypeTest.encapsulatedData.INTEGER
+//     i = 1
+// end UnionTypeTest.encapsulatedData.INTEGER;,record UnionTypeTest.encapsulatedData.BOOLEAN
+//     b = 1
+// end UnionTypeTest.encapsulatedData.BOOLEAN;}
+// end UnionTypeTest.encapsulatedData.LIST;,record UnionTypeTest.encapsulatedData.BOOLEAN
+//     b = 1
+// end UnionTypeTest.encapsulatedData.BOOLEAN;}
+// record UnionTypeTest.encapsulatedData.INTEGER
+//     i = 1
+// end UnionTypeTest.encapsulatedData.INTEGER;
